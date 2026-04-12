@@ -1,28 +1,29 @@
 using System;
 
-// EternalGoal inherits from Goal
+// Represents a goal that is never fully completed but provides points each time
 public class EternalGoal : Goal
 {
-    // The constructor just passes everything to the parent class.
+    // Constructor passes shared data to the base Goal class
     public EternalGoal(string name, string description, string points) : base(name, description, points)
     {
+        // No extra variables needed as this goal never changes state
     }
 
-    // For an Eternal Goal, recording an event doesn't change a "complete" status.
-    // The score logic will be handled by the Manager class later.
+    // Records the event. For eternal goals, there is no 'complete' status to update.
     public override void RecordEvent()
     {
-        // No status change needed here.
+        // Points will be added by the Manager, but the goal remains active
     }
 
-    // An Eternal Goal is never finished, so we always return false.
+    // An eternal goal is never finished, so it always returns false
     public override bool IsComplete()
     {
         return false;
     }
 
+    // Formats the data for file storage
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"EternalGoal:{_shortName},{_description},{_points}";
     }
 }

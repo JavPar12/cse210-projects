@@ -1,34 +1,32 @@
 using System;
 
-// SimpleGoal inherits from Goal
+// Represents a goal that is completed once and then finished
 public class SimpleGoal : Goal
 {
     private bool _isComplete;
 
-    // The constructor takes name, description, and points, 
-    // and passes them to the 'base' class (Goal).
+    // Constructor passes shared data to the base Goal class
     public SimpleGoal(string name, string description, string points) : base(name, description, points)
     {
-        // When we first create a goal, it is not complete.
+        // New goals start as incomplete
         _isComplete = false;
     }
 
-    // This overrides the abstract method from the parent.
-    // Marking a simple goal as recorded means it is now complete.
+    // Records the goal as finished
     public override void RecordEvent()
     {
         _isComplete = true;
     }
 
-    // Returns the status of the goal.
+    // Returns true if the goal has been accomplished
     public override bool IsComplete()
     {
         return _isComplete;
     }
 
-    // We will fill this in later for saving/loading.
+    // Formats the object data into a single string for saving to a file
     public override string GetStringRepresentation()
     {
-        return ""; 
+        return $"SimpleGoal:{_shortName},{_description},{_points},{_isComplete}";
     }
 }
