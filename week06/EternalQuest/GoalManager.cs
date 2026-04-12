@@ -105,7 +105,7 @@ public class GoalManager
     Console.Write("Which goal did you accomplish? ");
     string input = Console.ReadLine();
 
-    // int.TryParse returns true if it's a number, and false if it's text like "Church"
+    // int.TryParse returns true if it's a number, and false if it's text
     if (int.TryParse(input, out int index))
     {
         index = index - 1; // Adjust for zero-based index
@@ -128,7 +128,7 @@ public class GoalManager
     }
     else
     {
-        // This prevents the crash if the user types "Church" instead of "1"
+        // This prevents the crash if the user types "letters" instead of "numbers"
         Console.WriteLine("Error: Please enter the number of the goal, not its name.");
     }
 }
